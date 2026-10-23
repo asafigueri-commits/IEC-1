@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#001021" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Panel de Administración · IEC COMUNICACIONES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body">
+
+  <!-- ============================================================ LOGIN (RBAC) ============================================================ -->
+  <div class="adminauth" id="adminLogin">
+    <div class="adminauth__card">
+      <a href="index.html" class="adminauth__brand brand" id="brandAdminLogin" aria-label="Ir al sitio IEC COMUNICACIONES">
+        <img class="brand__logo" src="assets/img/logo.png" alt="IEC Comunicaciones" />
+        <span class="brand__fallback" aria-hidden="true">
+          <span class="brand__mark"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+          <span class="brand__text brand__text--light">IEC<small>Panel interno</small></span>
+        </span>
+      </a>
+      <h1 class="adminauth__title">Acceso restringido</h1>
+      <p class="adminauth__subtitle">Área exclusiva para staff y gerencia de IEC COMUNICACIONES.</p>
+
+      <form class="adminauth__form" id="adminLoginForm" novalidate>
+        <div class="field">
+          <label for="aUser">Usuario corporativo</label>
+          <div class="field__control">
+            <i class="fa-solid fa-user field__fa" aria-hidden="true"></i>
+            <input type="text" id="aUser" name="user" autocomplete="username" placeholder="usuario@iec.com" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="aPass">Contraseña</label>
+          <div class="field__control">
+            <i class="fa-solid fa-lock field__fa" aria-hidden="true"></i>
+            <input type="password" id="aPass" name="password" autocomplete="current-password" placeholder="••••••••" required />
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block" id="adminLoginBtn">Ingresar</button>
+        <p class="form-msg" id="adminLoginMsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="adminauth__hints">
+        <p><strong>Demo · Admin/Jefe:</strong> <code>jefe@iec.com</code> / <code>admin123</code></p>
+        <p><strong>Demo · Técnico:</strong> <code>tecnico@iec.com</code> / <code>tecnico123</code></p>
+      </div>
+      <a class="adminauth__back" href="index.html">← Volver al sitio público</a>
+    </div>
+  </div>
+
+  <!-- ============================================================ APP (DASHBOARD) ============================================================ -->
+  <div class="adminapp" id="adminApp" hidden>
+    <!-- Sidebar -->
+    <aside class="adminside" id="adminSide">
+      <a href="index.html" class="adminside__brand brand" id="brandAdminSide" aria-label="Ir al sitio IEC COMUNICACIONES">
+        <img class="brand__logo" src="assets/img/logo.png" alt="IEC Comunicaciones" />
+        <span class="brand__fallback" aria-hidden="true">
+          <span class="brand__mark"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+          <span class="brand__text brand__text--light">IEC<small>Panel interno</small></span>
+        </span>
+      </a>
+
+      <nav class="adminside__nav" aria-label="Navegación del panel">
+        <button class="adminside__item is-active" data-view="dashboard" data-roles="admin" type="button"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Dashboard General</button>
+        <button class="adminside__item" data-view="usuarios" data-roles="admin,tecnico" type="button"><i class="fa-solid fa-users" aria-hidden="true"></i> Gestión de Usuarios</button>
+        <button class="adminside__item" data-view="personal" data-roles="admin" type="button"><i class="fa-solid fa-id-badge" aria-hidden="true"></i> Personal IEC</button>
+        <button class="adminside__item" data-view="noc" data-roles="admin,tecnico" type="button"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Estado de Red (NOC)</button>
+        <button class="adminside__item" data-view="facturacion" data-roles="admin" type="button"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> Facturación</button>
+        <button class="adminside__item" data-view="tickets" data-roles="admin" type="button"><i class="fa-solid fa-headset" aria-hidden="true"></i> Tickets de Soporte</button>
+      </nav>
+
+      <div class="adminside__foot">
+        <div class="adminside__role" id="sideRole"><span class="role-badge" id="roleBadge">—</span></div>
+        <button class="adminside__item adminside__logout" id="adminLogout" type="button"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Cerrar sesión</button>
+      </div>
+    </aside>
+    <div class="admin-overlay" aria-hidden="true"></div>
+
+    <!-- Main -->
+    <div class="adminmain">
+      <header class="admintop">
+        <button class="admintop__menu" id="adminMenuBtn" type="button" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+        <div class="admintop__title">
+          <h1 id="adminTitle">Dashboard General</h1>
+          <span class="admintop__crumb">Panel interno IEC</span>
+        </div>
+        <div class="admintop__actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema" title="Tema claro / oscuro">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <div class="admintop__user"><span class="admintop__avatar" id="userAvatar">IE</span><span class="admintop__userinfo"><strong id="userName">—</strong><small id="userRole">—</small></span></div>
+        </div>
+      </header>
+
+      <div class="admincontent">
+
+        <!-- DASHBOARD GENERAL -->
+        <section class="adminview is-active" id="view-dashboard" aria-label="Dashboard general">
+          <div class="metric-cards">
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-users" aria-hidden="true"></i></div><div><span class="metric-card__value" data-count="1842">0</span><span class="metric-card__label">Usuarios activos</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--blue"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div><div><span class="metric-card__value" data-count="38.6" data-decimals="1" data-suffix=" TB">0</span><span class="metric-card__label">Ancho de banda consumido (mes)</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--amber"><i class="fa-solid fa-headset" aria-hidden="true"></i></div><div><span class="metric-card__value" data-count="12">0</span><span class="metric-card__label">Tickets pendientes</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div><div><span class="metric-card__value" data-count="221">0</span><span class="metric-card__label">Radio bases en línea</span></div></article>
+          </div>
+
+          <div class="admincard">
+            <div class="admincard__head"><h2>Actividad reciente</h2><span class="badge badge--ok"><span class="dot"></span> Operación normal</span></div>
+            <ul class="activity">
+              <li><i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Alta de cliente <strong>#IEZ-019044</strong> · Fibra 200 Mbps · Pachuca</li>
+              <li><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Mantenimiento programado · Nodo Tlaxcala · 02:00–03:00</li>
+              <li><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i> 38 pagos conciliados automáticamente</li>
+              <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> Failover ejecutado en enlace internacional secundario</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- GESTIÓN DE USUARIOS -->
+        <section class="adminview" id="view-usuarios" aria-label="Gestión de usuarios" hidden>
+          <div class="metric-cards metric-cards--compact">
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-user-check" aria-hidden="true"></i></div><div><span class="metric-card__value" id="kpiActivos">—</span><span class="metric-card__label">Clientes activos</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--amber"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></div><div><span class="metric-card__value" id="kpiSusp">—</span><span class="metric-card__label">Suspendidos</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--blue"><i class="fa-solid fa-users" aria-hidden="true"></i></div><div><span class="metric-card__value" id="kpiTotal">—</span><span class="metric-card__label">Total en cartera</span></div></article>
+          </div>
+
+          <div class="admincard">
+            <div class="admincard__head">
+              <h2>Clientes</h2>
+              <div class="admincard__head-actions">
+                <button type="button" class="btn btn--primary" id="openClientAddModal">
+                  <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Agregar Cliente
+                </button>
+                <input type="search" class="admin-search" id="userSearch" placeholder="Buscar por nombre, plan o nodo…" aria-label="Buscar clientes" />
+              </div>
+            </div>
+            <div class="table-wrap table-wrap--cards">
+              <table class="admin-table" id="usersTable">
+                <thead><tr><th>ID</th><th>Nombre</th><th>Plan contratado</th><th>Dirección / Nodo</th><th>Estado</th><th class="ta-right">Acciones</th></tr></thead>
+                <tbody id="usersBody"><!-- generado por admin.js --></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- PERSONAL IEC · TRABAJADORES -->
+        <section class="adminview" id="view-personal" aria-label="Personal IEC" hidden>
+          <div class="metric-cards metric-cards--compact">
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-user-check" aria-hidden="true"></i></div><div><span class="metric-card__value" id="staffKpiActive">—</span><span class="metric-card__label">Activos en operación</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--amber"><i class="fa-solid fa-route" aria-hidden="true"></i></div><div><span class="metric-card__value" id="staffKpiRoute">—</span><span class="metric-card__label">En ruta</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--blue"><i class="fa-solid fa-key" aria-hidden="true"></i></div><div><span class="metric-card__value" id="staffKpiTotal">—</span><span class="metric-card__label">Personal registrado</span></div></article>
+          </div>
+
+          <div class="admincard staff-add-card">
+            <div class="admincard__head"><h2>Alta de personal</h2><span class="badge badge--ok"><span class="dot"></span> Token automático</span></div>
+            <form class="staff-add-form" id="staffAddForm" novalidate>
+              <div class="staff-add-form__grid">
+                <div class="field">
+                  <label for="staffName">Nombre completo</label>
+                  <input type="text" id="staffName" name="nombre" placeholder="Ej. Ing. Carlos Mendoza" maxlength="80" required />
+                </div>
+                <div class="field">
+                  <label for="staffRole">Puesto / Rol</label>
+                  <input type="text" id="staffRole" name="puesto" placeholder="Ej. Soporte NOC, Instalador de fibra…" maxlength="120" required />
+                </div>
+                <div class="field">
+                  <label for="staffStatus">Estado operativo</label>
+                  <select id="staffStatus" name="estado" required>
+                    <option value="activo">Activo</option>
+                    <option value="en-ruta">En ruta</option>
+                    <option value="fuera">Fuera de servicio</option>
+                  </select>
+                </div>
+                <div class="field staff-add-form__action">
+                  <button type="submit" class="btn btn--primary btn--block" id="staffAddBtn"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Añadir personal + llave</button>
+                </div>
+              </div>
+              <p class="form-msg" id="staffAddMsg" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="admincard">
+            <div class="admincard__head">
+              <div>
+                <h2>Equipo IEC Comunicaciones</h2>
+                <p class="staff-table-note">Edita libremente el <strong>Puesto / Rol</strong> en cada fila y pulsa <strong>Guardar</strong> para registrar el cambio.</p>
+              </div>
+              <input type="search" class="admin-search" id="staffSearch" placeholder="Buscar por nombre, puesto o llave…" aria-label="Buscar personal" />
+            </div>
+            <div class="table-wrap table-wrap--cards">
+              <table class="admin-table staff-table" id="staffTable">
+                <thead>
+                  <tr>
+                    <th>Nombre completo</th>
+                    <th>Puesto / Rol</th>
+                    <th>Estado operativo</th>
+                    <th>Llave / Token de acceso</th>
+                    <th class="ta-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="staffBody"><!-- generado por app.js --></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESTADO DE RED (NOC) -->
+        <section class="adminview" id="view-noc" aria-label="Estado de red NOC" hidden>
+          <div class="metric-cards">
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></div><div><span class="metric-card__value">99.98%</span><span class="metric-card__label">Uptime (30 días)</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--blue"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></div><div><span class="metric-card__value">4.2 <small>ms</small></span><span class="metric-card__label">Latencia media</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div><div><span class="metric-card__value">221 / 221</span><span class="metric-card__label">Radio bases en línea</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--amber"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div><div><span class="metric-card__value">1</span><span class="metric-card__label">Alertas activas</span></div></article>
+          </div>
+
+          <div class="admincard">
+            <div class="admincard__head"><h2>Nodos troncales</h2><span class="badge badge--ok"><span class="dot"></span> SEGURO</span></div>
+            <ul class="noc-list">
+              <li><span class="noc-list__name">NOC Central · Teotihuacán</span><span class="noc-bar"><span class="noc-bar__fill" style="width:42%"></span></span><span class="tag tag--paid">Óptimo</span></li>
+              <li><span class="noc-list__name">Nodo Estado de México</span><span class="noc-bar"><span class="noc-bar__fill" style="width:61%"></span></span><span class="tag tag--paid">Óptimo</span></li>
+              <li><span class="noc-list__name">Nodo Hidalgo (Pachuca)</span><span class="noc-bar"><span class="noc-bar__fill" style="width:73%"></span></span><span class="tag tag--paid">Óptimo</span></li>
+              <li><span class="noc-list__name">Nodo Tlaxcala</span><span class="noc-bar"><span class="noc-bar__fill" style="width:88%"></span></span><span class="tag tag--pending">Carga alta</span></li>
+              <li><span class="noc-list__name">Nodo Puebla</span><span class="noc-bar"><span class="noc-bar__fill" style="width:55%"></span></span><span class="tag tag--paid">Óptimo</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FACTURACIÓN (solo admin) -->
+        <section class="adminview" id="view-facturacion" aria-label="Facturación" hidden>
+          <div class="metric-cards metric-cards--compact">
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--green"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i></div><div><span class="metric-card__value">$1.21 <small>M</small></span><span class="metric-card__label">Facturado (mes)</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--amber"><i class="fa-solid fa-clock" aria-hidden="true"></i></div><div><span class="metric-card__value">$184,300</span><span class="metric-card__label">Por cobrar</span></div></article>
+            <article class="metric-card"><div class="metric-card__icon metric-card__icon--blue"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div><div><span class="metric-card__value">1,648</span><span class="metric-card__label">Facturas emitidas</span></div></article>
+          </div>
+          <div class="admincard">
+            <div class="admincard__head"><h2>Últimas facturas</h2></div>
+            <div class="table-wrap table-wrap--cards">
+              <table class="admin-table">
+                <thead><tr><th>Folio</th><th>Cliente</th><th>Monto</th><th>Estado</th><th class="ta-right">Comprobante</th></tr></thead>
+                <tbody>
+                  <tr><td>F-2026-06-0481</td><td>Distribuidora del Valle SA</td><td>$9,500.00</td><td><span class="tag tag--pending">Pendiente</span></td><td class="ta-right"><button type="button" class="btn btn--ghost btn--sm" data-admin-invoice="F-2026-06-0481" data-periodo="Junio 2026" data-amount="$9,500.00" data-client="Distribuidora del Valle SA">PDF</button></td></tr>
+                  <tr><td>F-2026-06-0480</td><td>Hotel Teotihuacán</td><td>$4,000.00</td><td><span class="tag tag--paid">Pagada</span></td><td class="ta-right"><button type="button" class="btn btn--ghost btn--sm" data-admin-invoice="F-2026-06-0480" data-periodo="Junio 2026" data-amount="$4,000.00" data-client="Hotel Teotihuacán">PDF</button></td></tr>
+                  <tr><td>F-2026-06-0479</td><td>Corporativo Pachuca</td><td>$41,500.00</td><td><span class="tag tag--paid">Pagada</span></td><td class="ta-right"><button type="button" class="btn btn--ghost btn--sm" data-admin-invoice="F-2026-06-0479" data-periodo="Junio 2026" data-amount="$41,500.00" data-client="Corporativo Pachuca">PDF</button></td></tr>
+                  <tr><td>F-2026-06-0478</td><td>Escuela Tlaxcala</td><td>$2,500.00</td><td><span class="tag tag--paid">Pagada</span></td><td class="ta-right"><button type="button" class="btn btn--ghost btn--sm" data-admin-invoice="F-2026-06-0478" data-periodo="Junio 2026" data-amount="$2,500.00" data-client="Escuela Tlaxcala">PDF</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TICKETS (solo admin) -->
+        <section class="adminview" id="view-tickets" aria-label="Tickets de soporte" hidden>
+          <div class="admincard">
+            <div class="admincard__head"><h2>Tickets de soporte</h2><span class="badge badge--ok"><span class="dot"></span> 12 abiertos</span></div>
+            <div class="table-wrap table-wrap--cards">
+              <table class="admin-table">
+                <thead><tr><th>Folio</th><th>Cliente</th><th>Asunto</th><th>Prioridad</th><th>Estado</th></tr></thead>
+                <tbody>
+                  <tr><td>#TK-4581</td><td>Distribuidora del Valle</td><td>Intermitencia enlace dedicado</td><td><span class="tag tag--pending">Alta</span></td><td><span class="tag tag--pending">En proceso</span></td></tr>
+                  <tr><td>#TK-4577</td><td>Hotel Teotihuacán</td><td>Aumento temporal de ancho de banda</td><td><span class="tag">Media</span></td><td><span class="tag tag--pending">Abierto</span></td></tr>
+                  <tr><td>#TK-4570</td><td>Corporativo Pachuca</td><td>Reporte de tráfico mensual</td><td><span class="tag">Baja</span></td><td><span class="tag tag--paid">Resuelto</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal · Alta de cliente -->
+  <div class="admin-modal" id="clientAddModal" hidden aria-hidden="true">
+    <div class="admin-modal__backdrop" data-close-client-modal></div>
+    <div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="clientAddModalTitle">
+      <div class="admin-modal__head">
+        <h2 id="clientAddModalTitle">Agregar cliente</h2>
+        <button type="button" class="admin-modal__close" id="closeClientAddModal" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <form class="admin-modal__form" id="clientAddForm" novalidate>
+        <input type="hidden" id="clientEditId" name="clientId" value="" />
+        <div class="field">
+          <label for="clientName">Nombre completo</label>
+          <input type="text" id="clientName" name="nombre" maxlength="120" placeholder="Ej. María Hernández" required />
+        </div>
+        <div class="field">
+          <label for="clientEmail">Correo electrónico</label>
+          <input type="email" id="clientEmail" name="email" maxlength="254" placeholder="cliente@empresa.com" required />
+        </div>
+        <div class="field">
+          <label for="clientPhone">Teléfono</label>
+          <input type="tel" id="clientPhone" name="telefono" inputmode="tel" maxlength="20" placeholder="(55) 1234 5678" required />
+        </div>
+        <div class="field">
+          <label for="clientPlan">Plan de Internet</label>
+          <select id="clientPlan" name="plan" required>
+            <option value="">Selecciona un plan…</option>
+            <option value="residencial">Residencial</option>
+            <option value="fibra">Cambio a FO</option>
+            <option value="empresarial">Empresarial</option>
+            <option value="dedicado-10g">Dedicado de 10Gb</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="clientNodo">Nodo / Zona</label>
+          <select id="clientNodo" name="nodo" required>
+            <option value="Teotihuacán">Teotihuacán</option>
+            <option value="Ecatepec">Ecatepec</option>
+            <option value="Pachuca">Pachuca</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Hidalgo">Hidalgo</option>
+          </select>
+        </div>
+        <p class="form-msg" id="clientAddMsg" role="status" aria-live="polite"></p>
+        <div class="admin-modal__actions">
+          <button type="button" class="btn btn--ghost" data-close-client-modal>Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="clientAddSubmitBtn">Guardar cliente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector(".admin-overlay")?.addEventListener("click", function () {
+      document.getElementById("adminSide")?.classList.remove("open");
+    });
+  </script>
+  <script src="app.js" defer></script>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#001021" />
+  <meta name="description" content="IEC COMUNICACIONES · ISP e integrador tecnológico con 20 años de trayectoria. Fibra óptica simétrica, internet residencial, empresarial y dedicado, troncales SIP, videovigilancia y más en el centro de México." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://maps.googleapis.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https://images.unsplash.com https://maps.googleapis.com https://maps.gstatic.com; connect-src 'self' https://maps.googleapis.com; base-uri 'self'; form-action 'self'; object-src 'none'" />
+
+  <!-- =====================================================================
+       HARDENING · Configurar en Nginx (proxy inverso) como cabeceras HTTP reales:
+         add_header X-Frame-Options "SAMEORIGIN" always;
+         add_header X-Content-Type-Options "nosniff" always;
+         add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+         add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+         add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+         add_header Content-Security-Policy "default-src 'self';
+            script-src 'self' https://maps.googleapis.com;
+            style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline';
+            font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+            img-src 'self' data: https://images.unsplash.com https://*.googleapis.com https://*.gstatic.com;
+            connect-src 'self' https://maps.googleapis.com; frame-ancestors 'self'; base-uri 'self';
+            form-action 'self'; object-src 'none'" always;
+       Cookies de sesión reales: HttpOnly; Secure; SameSite=Strict. Servir bajo TLS 1.2/1.3.
+       Recomendado: auto-hospedar Font Awesome en /assets para no depender de CDN externo.
+       ===================================================================== -->
+
+  <title>IEC COMUNICACIONES · Fibra Óptica, Conectividad Empresarial e Integración Tecnológica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="site-body">
+  <!-- ============================================================ CABECERA ============================================================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <ul class="topbar__contact">
+          <li><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:+525512099366">(55) 1209 9366</a> <span>· Con 15 Líneas</span></li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:iec@ieczal.com.mx">iec@ieczal.com.mx</a></li>
+        </ul>
+        <div class="topbar__meta">
+          <span class="status-pill"><span class="status-dot"></span> Red operando con normalidad</span>
+          <a href="#seguridad" class="topbar__link">SLA y Políticas</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="container navbar__inner">
+        <a href="index.html" class="brand" id="brandTop" aria-label="IEC COMUNICACIONES inicio">
+          <img class="brand__logo" src="assets/img/logo.png" alt="IEC Comunicaciones" />
+          <span class="brand__fallback" aria-hidden="true">
+            <span class="brand__mark"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+            <span class="brand__text">IEC<small>Comunicaciones</small></span>
+          </span>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="#planes" class="nav-link">Planes</a></li>
+          <li class="nav-item"><a href="#soluciones" class="nav-link">Soluciones Avanzadas</a></li>
+          <li class="nav-item"><a href="#nosotros" class="nav-link">Quiénes somos</a></li>
+          <li class="nav-item"><a href="#cobertura" class="nav-link">Cobertura</a></li>
+          <li class="nav-item"><a href="#seguridad" class="nav-link">Seguridad</a></li>
+          <li class="nav-item"><a href="#pagos" class="nav-link">Formas de Pago</a></li>
+          <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+          <li class="nav-item nav-item--mobile-only"><a href="portal.html" class="nav-link nav-link--portal"><i class="fa-solid fa-lock" aria-hidden="true"></i> Iniciar sesión</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activar modo noche" title="Modo noche corporativo">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a href="portal.html" class="btn btn--portal"><i class="fa-solid fa-lock" aria-hidden="true"></i> Iniciar sesión</a>
+          <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- ============================================================ HERO (con imagen de rack) ============================================================ -->
+    <section class="hero hero--media" id="inicio" data-hero>
+      <img class="hero__bg" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=70" alt="" aria-hidden="true"
+           data-fallback="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=70" />
+      <span class="hero__overlay" aria-hidden="true"></span>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="hero__eyebrow hero-animate hero-animate--1">ISP e integrador tecnológico · 20 años de trayectoria</span>
+          <h1 class="hero__title hero-animate hero-animate--2">Fibra Óptica, Conectividad Empresarial e Integración Tecnológica</h1>
+          <p class="hero__subtitle hero-animate hero-animate--3">
+            Red de comunicación masiva e <strong>infraestructura propia</strong> de alta disponibilidad,
+            <strong>SLA del 99.9%</strong>, soporte técnico local especializado y monitoreo en tiempo real desde nuestro NOC 24/7/365.
+          </p>
+          <div class="hero__actions hero-animate hero-animate--4">
+            <a href="#planes" class="btn btn--primary">Ver planes y tarifas</a>
+            <a href="#contacto" class="btn btn--ghost-light">Solicitar cotización</a>
+          </div>
+          <ul class="hero__trust hero-animate hero-animate--5">
+            <li><strong>99.9%</strong><span>SLA garantizado</span></li>
+            <li><strong>221</strong><span>Radio bases activas</span></li>
+            <li><strong>+20 años</strong><span>De experiencia</span></li>
+          </ul>
+        </div>
+
+        <aside class="hero__visual hero-animate hero-animate--6" aria-hidden="true">
+          <div class="hero__panel">
+            <div class="hero__panel-head">
+              <span class="hero__panel-title">Network Operations Center</span>
+              <span class="status-pill status-pill--light"><span class="status-dot"></span> Online</span>
+            </div>
+            <div class="hero__metrics">
+              <div class="hero__metric"><span class="hero__metric-label">Uptime (30d)</span><span class="hero__metric-value">99.98%</span><span class="bar"><span class="bar__fill" data-fill="99.98"></span></span></div>
+              <div class="hero__metric"><span class="hero__metric-label">Latencia media</span><span class="hero__metric-value">4.2 ms</span><span class="bar"><span class="bar__fill" data-fill="22"></span></span></div>
+              <div class="hero__metric"><span class="hero__metric-label">Capacidad de salida</span><span class="hero__metric-value">2 Gbps</span><span class="bar"><span class="bar__fill" data-fill="80"></span></span></div>
+            </div>
+            <div class="hero__panel-foot"><span>221 radio bases</span><span>Red propia</span><span>Soporte local</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="credentials reveal" aria-label="Credenciales">
+      <div class="container credentials__inner reveal-stagger">
+        <span>Red de comunicación propia</span>
+        <span>Fibra óptica simétrica</span>
+        <span>Monitoreo 7x24x365 desde el NOC</span>
+        <span>Soporte local calificado</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ QUIÉNES SOMOS (con imagen de torre) ============================================================ -->
+    <section class="section about" id="nosotros">
+      <div class="container about__grid reveal">
+        <div class="about__content">
+          <span class="section-head__eyebrow">Quiénes somos</span>
+          <h2 class="section-head__title">Dos décadas conectando al centro de México</h2>
+          <p class="about__text">
+            En IEC COMUNICACIONES acumulamos más de <strong>20 años de trayectoria</strong> en el sector de
+            telecomunicaciones, operando una <strong>red de comunicación masiva con infraestructura propia</strong> de
+            alta disponibilidad y un <strong>soporte técnico local especializado</strong>.
+          </p>
+            <div class="about__stats">
+            <div class="about__stat"><strong data-count="20" data-prefix="+">+0</strong><span>Años de trayectoria</span></div>
+            <div class="about__stat"><strong data-count="221">0</strong><span>Radio bases activas</span></div>
+            <div class="about__stat"><strong>Propia</strong><span>Infraestructura</span></div>
+            <div class="about__stat"><strong>Local</strong><span>Soporte calificado</span></div>
+          </div>
+        </div>
+        <figure class="feature-media about__media">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=70"
+               alt="Torre de telecomunicaciones / radiobase de IEC instalada en exteriores"
+               data-fallback="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=70" />
+        </figure>
+      </div>
+
+      <div class="container reveal" id="cobertura">
+        <div id="map" class="map-embed" role="application" aria-label="Mapa de cobertura de torres y radio bases IEC COMUNICACIONES"></div>
+        <p class="map-note">Cobertura representativa de 221 radiobases y torres en Estado de México, Hidalgo, Tlaxcala y Puebla · Nodo central NOC en Teotihuacán.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ PLANES (tabs multinivel) ============================================================ -->
+    <section class="section planes" id="planes">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-head__eyebrow">Planes y tarifas</span>
+          <h2 class="section-head__title">Elige la solución a tu medida</h2>
+          <p class="section-head__desc">Planes residenciales por región, migración a fibra óptica simétrica y conectividad corporativa dedicada.</p>
+        </header>
+
+        <div class="tabs reveal reveal--delay-1">
+          <div class="tabs__list tabs__list--wrap" role="tablist" aria-label="Categoría de planes">
+            <button class="tab is-active" id="tab-res" role="tab" aria-selected="true" aria-controls="panel-res">Residencial</button>
+            <button class="tab" id="tab-fibra" role="tab" aria-selected="false" aria-controls="panel-fibra" tabindex="-1">Cambio a FO</button>
+            <button class="tab" id="tab-emp" role="tab" aria-selected="false" aria-controls="panel-emp" tabindex="-1">Empresarial</button>
+            <button class="tab" id="tab-ded" role="tab" aria-selected="false" aria-controls="panel-ded" tabindex="-1">Dedicado</button>
+          </div>
+
+          <!-- A: RESIDENCIAL ANTENA -->
+          <div class="tabs__panel is-active" id="panel-res" role="tabpanel" aria-labelledby="tab-res">
+            <div class="subtabs__list" role="tablist" aria-label="Región residencial">
+              <button class="subtab is-active" id="st-res-edo" role="tab" aria-selected="true" aria-controls="sp-res-edo">Estado de México</button>
+              <button class="subtab" id="st-res-htp" role="tab" aria-selected="false" aria-controls="sp-res-htp" tabindex="-1">Hidalgo, Tlaxcala y Puebla</button>
+            </div>
+            <div class="tabs__panel is-active" id="sp-res-edo" role="tabpanel" aria-labelledby="st-res-edo">
+              <div class="price-grid">
+                <article class="price-card"><h3 class="price-card__name">Básico</h3><p class="price-card__speed">Hasta 4 Mbps</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $2,050</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+                <article class="price-card"><h3 class="price-card__name">Estándar</h3><p class="price-card__speed">Hasta 6 Mbps</p><div class="price-card__price"><span class="cur">$</span>285<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $2,050</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Premium</h3><p class="price-card__speed">Hasta 8 Mbps</p><div class="price-card__price"><span class="cur">$</span>535<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $3,500</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Contratar</a></article>
+                <article class="price-card"><h3 class="price-card__name">Plus</h3><p class="price-card__speed">Hasta 10 Mbps</p><div class="price-card__price"><span class="cur">$</span>785<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $3,500</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+                <article class="price-card"><h3 class="price-card__name">Ultimate</h3><p class="price-card__speed">Hasta 15 Mbps</p><div class="price-card__price"><span class="cur">$</span>1,035<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $3,500</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+              </div>
+            </div>
+            <div class="tabs__panel" id="sp-res-htp" role="tabpanel" aria-labelledby="st-res-htp" hidden>
+              <div class="price-grid">
+                <article class="price-card"><h3 class="price-card__name">Básico</h3><p class="price-card__speed">Hasta 4 Mbps</p><div class="price-card__price"><span class="cur">$</span>235<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $2,050</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+                <article class="price-card"><h3 class="price-card__name">Estándar</h3><p class="price-card__speed">Hasta 6 Mbps</p><div class="price-card__price"><span class="cur">$</span>335<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $2,050</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Premium</h3><p class="price-card__speed">Hasta 8 Mbps</p><div class="price-card__price"><span class="cur">$</span>585<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $3,500</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Contratar</a></article>
+                <article class="price-card"><h3 class="price-card__name">Plus</h3><p class="price-card__speed">Hasta 10 Mbps</p><div class="price-card__price"><span class="cur">$</span>835<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $3,500</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+                <article class="price-card"><h3 class="price-card__name">Ultimate</h3><p class="price-card__speed">Hasta 15 Mbps</p><div class="price-card__price"><span class="cur">$</span>1,085<span class="per">.00 / mes</span></div><p class="price-card__install">Instalación: $3,500</p><ul class="price-card__features"><li>Antena + router incluidos</li><li>Navegación ilimitada</li><li>Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Contratar</a></article>
+              </div>
+            </div>
+          </div>
+
+          <!-- B: MIGRACIÓN A FIBRA -->
+          <div class="tabs__panel" id="panel-fibra" role="tabpanel" aria-labelledby="tab-fibra" hidden>
+            <figure class="feature-media plan-banner">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=70"
+                   alt="Filamentos de fibra óptica activos durante un proceso de fusión de hilos"
+                   data-fallback="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=70" />
+            </figure>
+            <p class="panel-note">Exclusivo clientes actuales con antena · <strong class="hl">Instalación SIN COSTO</strong> · <strong class="hl">Se entrega Módem y Antena</strong> · <strong class="hl">Internet Ilimitado</strong> · <strong class="hl">Sin plazos forzosos</strong>.</p>
+            <div class="subtabs__list" role="tablist" aria-label="Región fibra óptica">
+              <button class="subtab is-active" id="st-fib-edo" role="tab" aria-selected="true" aria-controls="sp-fib-edo">Estado de México</button>
+              <button class="subtab" id="st-fib-htp" role="tab" aria-selected="false" aria-controls="sp-fib-htp" tabindex="-1">Hidalgo, Puebla y Tlaxcala</button>
+            </div>
+            <div class="tabs__panel is-active" id="sp-fib-edo" role="tabpanel" aria-labelledby="st-fib-edo">
+              <div class="price-grid price-grid--3">
+                <article class="price-card"><h3 class="price-card__name">Fibra 40</h3><p class="price-card__speed">40 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Fibra 60</h3><p class="price-card__speed">60 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>285<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>535<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+              </div>
+            </div>
+            <div class="tabs__panel" id="sp-fib-htp" role="tabpanel" aria-labelledby="st-fib-htp" hidden>
+              <div class="price-grid">
+                <article class="price-card"><h3 class="price-card__name">Fibra 40</h3><p class="price-card__speed">40 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 60</h3><p class="price-card__speed">60 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>335<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Fibra 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>585<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 500</h3><p class="price-card__speed">500 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>835<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+              </div>
+            </div>
+          </div>
+
+          <!-- C: EMPRESARIAL -->
+          <div class="tabs__panel" id="panel-emp" role="tabpanel" aria-labelledby="tab-emp" hidden>
+            <p class="panel-note">Conectividad simétrica para PyMEs y corporativos · <strong>IP fija</strong> · <strong>Infraestructura propia</strong> · <strong>Sujeto a factibilidad</strong>.</p>
+            <aside class="plan-backup reveal" aria-label="Sistema de respaldo incluido">
+              <span class="plan-backup__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+              <div class="plan-backup__text">
+                <strong>Sistema de Respaldo Inteligente</strong>
+                <p>Enlaces redundantes con failover automático para que tu operación nunca se quede sin internet aunque falle la línea principal.</p>
+              </div>
+            </aside>
+            <div class="price-grid price-grid--4">
+              <article class="price-card"><h3 class="price-card__name">Básico</h3><p class="price-card__speed">6 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>2,500<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
+              <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Elemental</h3><p class="price-card__speed">10 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>4,000<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--primary btn--block">Solicitar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Premium</h3><p class="price-card__speed">30 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>7,000<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Ultimate</h3><p class="price-card__speed">50 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>9,500<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
+            </div>
+          </div>
+
+          <!-- D: DEDICADO -->
+          <div class="tabs__panel" id="panel-ded" role="tabpanel" aria-labelledby="tab-ded" hidden>
+            <p class="panel-note">Internet puro de misión crítica · <strong>Velocidad simétrica garantizada</strong> · <strong>IPs fijas</strong> · <strong>SLA 99.9%</strong>.</p>
+            <aside class="plan-backup reveal" aria-label="Sistema de respaldo incluido">
+              <span class="plan-backup__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+              <div class="plan-backup__text">
+                <strong>Sistema de Respaldo Inteligente</strong>
+                <p>Enlaces redundantes con failover automático para que tu operación nunca se quede sin internet aunque falle la línea principal.</p>
+              </div>
+            </aside>
+
+            <article class="price-card price-card--capacity" aria-label="Solución de Alta Capacidad Internet Dedicado">
+              <span class="price-card__ribbon price-card__ribbon--capacity">Alta capacidad</span>
+              <div class="price-card--capacity__glow" aria-hidden="true"></div>
+              <div class="price-card--capacity__grid">
+                <div class="price-card--capacity__head">
+                  <span class="price-card--capacity__eyebrow"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Internet Dedicado</span>
+                  <h3 class="price-card--capacity__title">Solución de Alta Capacidad</h3>
+                  <p class="price-card--capacity__subtitle">(Internet Dedicado)</p>
+                </div>
+                <div class="price-card--capacity__speed-block">
+                  <span class="price-card--capacity__speed-label">Velocidad</span>
+                  <p class="price-card--capacity__speed">Hasta <strong>10 Gbps</strong> <span>simétricos</span></p>
+                </div>
+                <ul class="price-card--capacity__features">
+                  <li>Conexión 100% fibra óptica</li>
+                  <li>Diseñada para operaciones críticas en tiempo real</li>
+                  <li>Red dedicada con ultra baja latencia</li>
+                  <li class="hl">Sistema de Respaldo Inteligente (failover automático)</li>
+                </ul>
+                <div class="price-card--capacity__action">
+                  <a href="#contacto" class="btn btn--primary btn--block">Cotizar</a>
+                  <p class="price-card--capacity__note">Ingeniería a medida · Sujeto a factibilidad</p>
+                </div>
+              </div>
+            </article>
+
+            <div class="price-grid price-grid--3 ded-plans__grid">
+              <article class="price-card"><h3 class="price-card__name">Dedicado 100</h3><p class="price-card__speed">100 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>25,000<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cotizar</a></article>
+              <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Dedicado 300</h3><p class="price-card__speed">300 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>41,500<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cotizar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Dedicado 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>34,000<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cotizar</a></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ SOLUCIONES (FontAwesome) ============================================================ -->
+    <section class="section soluciones" id="soluciones">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-head__eyebrow">Integración tecnológica</span>
+          <h2 class="section-head__title">Servicios de ingeniería e infraestructura</h2>
+          <p class="section-head__desc">Más que conectividad: ingeniería e integración para impulsar la operación de tu empresa.</p>
+        </header>
+        <div class="sol-grid reveal-stagger">
+          <article class="sol-card"><div class="sol-card__icon"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i></div><h3>Troncales SIP</h3><ul class="sol-card__list"><li>Comunicaciones unificadas</li><li>Integración con PBX</li><li>Alta calidad de voz</li></ul></article>
+          <article class="sol-card"><div class="sol-card__icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div><h3>Enlaces Punto a Punto</h3><ul class="sol-card__list"><li>Conexiones seguras</li><li>Baja latencia</li><li>Implementación rápida</li></ul></article>
+          <article class="sol-card"><div class="sol-card__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div><h3>Ojos Virtuales</h3><ul class="sol-card__list"><li>Monitoreo remoto</li><li>Análisis de video inteligente</li><li>Almacenamiento en la nube</li></ul></article>
+          <article class="sol-card"><div class="sol-card__icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div><h3>Redes Avanzadas</h3><ul class="sol-card__list"><li>Soluciones de red escalables</li><li>Infraestructura de alta disponibilidad</li><li>Gestión centralizada</li></ul></article>
+          <article class="sol-card"><div class="sol-card__icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div><h3>Creación de Páginas Web</h3><ul class="sol-card__list"><li>Diseño responsive y moderno</li><li>Desarrollo a medida y SEO</li><li>Optimización para buscadores</li></ul><p class="sol-card__benefit">Aumento de hasta 60% en conversiones</p></article>
+          <article class="sol-card"><div class="sol-card__icon"><i class="fa-solid fa-wifi" aria-hidden="true"></i></div><h3>WiFi Masivo</h3><ul class="sol-card__list"><li>Cobertura para grandes áreas</li><li>Gestión de usuarios avanzada</li><li>Analíticas en tiempo real</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CENTRO DE SEGURIDAD (con imagen NOC) ============================================================ -->
+    <section class="section section--dark security" id="seguridad">
+      <div class="container">
+        <header class="section-head section-head--light reveal">
+          <span class="section-head__eyebrow">Centro de ciberseguridad</span>
+          <h2 class="section-head__title">Infraestructura Blindada: Seguridad de Nivel Empresarial</h2>
+          <p class="section-head__desc">Defensa en profundidad sobre hardware propio en nuestro rack: filtrado de amenazas, redundancia, segmentación de red y cifrado fuerte de extremo a extremo.</p>
+        </header>
+
+        <figure class="feature-media sec-banner reveal">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=70"
+               alt="Pasillo blindado de un Centro de Operaciones de Red (NOC) / Data Center"
+               data-fallback="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=70" />
+        </figure>
+
+        <div class="secure-badge reveal reveal--delay-1" role="status" aria-live="polite">
+          <span class="secure-badge__pulse" aria-hidden="true"></span>
+          Infraestructura Monitoreada por el NOC — Estado:&nbsp;<strong>SEGURO</strong>
+        </div>
+
+        <div class="security-grid reveal-stagger">
+          <article class="sec-card"><div class="sec-card__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div><h3>Mitigación DDoS Activa</h3><p>Filtrado perimetral estricto de tráfico malicioso en tiempo real a nivel de borde.</p></article>
+          <article class="sec-card"><div class="sec-card__icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div><h3>Redundancia de Hardware en Rack</h3><p>Servidores espejo locales con sistemas UPS redundantes que sostienen un <strong>SLA del 99.9%</strong>.</p></article>
+          <article class="sec-card"><div class="sec-card__icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div><h3>Aislamiento de Redes (DMZ &amp; VLAN)</h3><p>Segmentación lógica rígida que salvaguarda los datos privados de los clientes frente a la red pública.</p></article>
+          <article class="sec-card"><div class="sec-card__icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div><h3>Cifrado End-to-End TLS/SSL</h3><p>Protocolos TLS/SSL nativos para proteger el tráfico web y el Portal de Clientes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FORMAS DE PAGO ============================================================ -->
+    <section class="section payment" id="pagos">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-head__eyebrow">Iniciar sesión</span>
+          <h2 class="section-head__title">Formas de Pago</h2>
+          <p class="section-head__desc">Paga tu servicio de forma segura en línea con tarjeta de crédito o débito.</p>
+        </header>
+
+        <div class="payment-grid payment-grid--single reveal">
+          <article class="payment-card payment-card--card">
+            <header class="payment-card__head">
+              <span class="payment-card__icon" aria-hidden="true"><i class="fa-solid fa-credit-card"></i></span>
+              <div>
+                <h3 class="payment-card__title">Pago en Línea / Tarjeta de Crédito o Débito</h3>
+              </div>
+            </header>
+            <div class="payment-card__body">
+              <p class="payment-card__desc">Aceptamos Visa, Mastercard y American Express. Pago seguro e inmediato.</p>
+              <div class="payment-card__brands" aria-label="Tarjetas aceptadas">
+                <span class="payment-brand" title="Visa"><i class="fa-brands fa-cc-visa" aria-hidden="true"></i><span class="sr-only">Visa</span></span>
+                <span class="payment-brand" title="Mastercard"><i class="fa-brands fa-cc-mastercard" aria-hidden="true"></i><span class="sr-only">Mastercard</span></span>
+                <span class="payment-brand" title="American Express"><i class="fa-brands fa-cc-amex" aria-hidden="true"></i><span class="sr-only">American Express</span></span>
+              </div>
+              <ul class="payment-card__features">
+                <li>Transacción cifrada TLS/SSL</li>
+                <li>Confirmación inmediata en tu portal</li>
+              </ul>
+            </div>
+            <footer class="payment-card__foot">
+              <a href="portal.html?intent=pago" class="btn btn--primary btn--block" data-intent="pago"><i class="fa-solid fa-lock" aria-hidden="true"></i> Pagar Ahora</a>
+            </footer>
+          </article>
+        </div>
+
+        <p class="payment-note reveal reveal--delay-1">Consulta facturas, historial de pagos y estado de cuenta tras <a href="portal.html">Iniciar sesión</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ FAQ · ACORDEÓN ============================================================ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <header class="faq-head reveal">
+          <h2 class="faq-head__title">LLEGAMOS A DONDE OTROS NO...</h2>
+          <p class="faq-head__subtitle">IEC Digital te conecta al mundo digital</p>
+          <hr class="faq-head__divider" />
+        </header>
+
+        <div class="faq-grid reveal-stagger">
+          <div class="faq-col">
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+                <span class="faq-item__label">Estamos a la Vanguardia</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1" hidden>
+                <p>Con más de 20 años de trayectoria operamos una red propia de <strong>221 radio bases y torres</strong> en Estado de México, Hidalgo, Tlaxcala y Puebla. Ofrecemos fibra óptica simétrica, enlaces dedicados y conectividad empresarial con <strong>SLA del 99.9%</strong>, monitoreo continuo desde nuestro NOC 24/7/365 y soporte técnico local especializado.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+                <span class="faq-item__label">Métodos de pago</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2" hidden>
+                <p>Puedes pagar tu servicio en línea con <strong>tarjeta de crédito o débito</strong> (Visa, Mastercard y American Express) a través del <a href="portal.html?intent=pago">Portal de Clientes</a>. La transacción es cifrada TLS/SSL y recibes confirmación inmediata en tu cuenta. Consulta la sección <a href="#pagos">Formas de Pago</a> para más detalles.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+                <span class="faq-item__label">¿Problemas con tu internet?</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3" hidden>
+                <p>Reinicia tu módem o router y verifica que los cables estén bien conectados. Si el problema continúa, abre un ticket en el <a href="portal.html">Portal de Clientes</a> o llámanos al <a href="tel:+525512099366">(55) 1209 9366</a>. Nuestro NOC atiende incidencias las 24 horas y dará seguimiento hasta restablecer tu servicio.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trigger-4">
+                <span class="faq-item__label">Comentarios y sugerencias</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4" hidden>
+                <p>Tu opinión nos ayuda a mejorar. Escríbenos a <a href="mailto:iec@ieczal.com.mx">iec@ieczal.com.mx</a> o utiliza el formulario de la sección <a href="#contacto">Contacto</a>. Indica tu número de cliente o folio de servicio para agilizar la respuesta. Leemos cada mensaje y te contactamos en un plazo máximo de 48 horas hábiles.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="faq-col">
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trigger-5">
+                <span class="faq-item__label">¿Cómo reportar tu pago?</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5" hidden>
+                <p>Si pagaste en línea, la confirmación aparece automáticamente en tu portal. Si realizaste un depósito o transferencia, envía tu comprobante a <a href="mailto:iec@ieczal.com.mx?subject=Reporte%20de%20pago">iec@ieczal.com.mx</a> indicando tu <strong>número de cliente</strong>, el <strong>folio de factura</strong> y la fecha del pago. También puedes reportarlo desde el portal en la sección Facturación.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-6" id="faq-trigger-6">
+                <span class="faq-item__label">Beneficios de nuestros servicios</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6" hidden>
+                <p>Incluimos infraestructura propia, soporte local calificado, planes residenciales y empresariales escalables, fibra simétrica de alta velocidad y enlaces dedicados hasta 10 Gbps. Garantizamos disponibilidad con SLA por escrito, monitoreo proactivo desde el NOC y atención personalizada sin call centers externos.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-7" id="faq-trigger-7">
+                <span class="faq-item__label">¿Cómo limpiar tu computadora de spam?</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-7" role="region" aria-labelledby="faq-trigger-7" hidden>
+                <p>No abras enlaces ni descargues archivos de correos desconocidos. Mantén actualizado tu sistema operativo y navegador, usa contraseñas únicas y activa la verificación en dos pasos cuando sea posible. IEC COMUNICACIONES <strong>nunca</strong> solicita pagos por WhatsApp ni pide datos bancarios por correo no oficial. Ante duda, confirma con nosotros al <a href="tel:+525512099366">(55) 1209 9366</a>.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-panel-8" id="faq-trigger-8">
+                <span class="faq-item__label">¿Te interesa vender nuestros servicios?</span>
+                <span class="faq-item__arrow" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-item__panel" id="faq-panel-8" role="region" aria-labelledby="faq-trigger-8" hidden>
+                <p>Tenemos un programa para distribuidores y aliados comerciales en nuestras zonas de cobertura. Si deseas revender conectividad residencial, fibra óptica o soluciones empresariales, escríbenos a <a href="mailto:iec@ieczal.com.mx?subject=Programa%20de%20distribuidores">iec@ieczal.com.mx</a> con tu zona de operación y volumen estimado. Nuestro equipo comercial te contactará con condiciones y capacitación técnica.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CONTACTO ============================================================ -->
+    <section class="section cta" id="contacto">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-head__eyebrow">Contacto</span>
+          <h2 class="section-head__title">Contáctanos</h2>
+          <p class="section-head__desc">Atención corporativa con 15 líneas y soporte local calificado.</p>
+        </header>
+
+        <div class="contact-info reveal-stagger">
+          <article class="contact-card"><div class="contact-card__icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div><h3>Dirección</h3><p>Calle Gustavo Baz Mza 2 Lote 13, Colonia Nueva Teotihuacán, Estado de México.</p></article>
+          <article class="contact-card"><div class="contact-card__icon"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i></div><h3>Con 15 Líneas</h3><p><a href="tel:+525512099366">(55) 1209 9366</a></p></article>
+          <article class="contact-card"><div class="contact-card__icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div><h3>Email</h3><p><a href="mailto:iec@ieczal.com.mx">iec@ieczal.com.mx</a></p></article>
+          <article class="contact-card"><div class="contact-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div><h3>Dominios oficiales</h3><p><a href="https://www.ieczal.com.mx" target="_blank" rel="noopener noreferrer">www.ieczal.com.mx</a><br><a href="https://www.iecz.com.mx" target="_blank" rel="noopener noreferrer">www.iecz.com.mx</a></p></article>
+        </div>
+
+        <div class="cta__inner reveal">
+          <div class="cta__text">
+            <h2>¿Necesitas conectividad de misión crítica?</h2>
+            <p>Nuestro equipo de ingeniería diseña la solución según la disponibilidad y capacidad que tu operación requiere.</p>
+            <ul class="cta__points"><li>Asesoría técnica especializada</li><li>Estudio de cobertura sin costo</li><li>Propuesta con SLA por escrito</li></ul>
+          </div>
+          <form class="cta__form" id="contactForm" action="api/contacto.php" method="post" novalidate>
+            <h3 class="cta__form-title">Solicita una cotización</h3>
+            <div class="field"><label for="name">Nombre y empresa</label><input type="text" id="name" name="name" autocomplete="organization" required maxlength="120" inputmode="text" spellcheck="false" /></div>
+            <div class="field-row">
+              <div class="field"><label for="phone">Teléfono</label><input type="tel" id="phone" name="phone" autocomplete="tel" required maxlength="20" inputmode="tel" pattern="[\d\s+\-().]{7,20}" title="Teléfono válido (7 a 15 dígitos)" /></div>
+              <div class="field"><label for="email">Correo</label><input type="email" id="email" name="email" autocomplete="email" maxlength="254" inputmode="email" spellcheck="false" /></div>
+            </div>
+            <div class="field">
+              <label for="service">Servicio de interés</label>
+              <select id="service" name="service">
+                <option value="residencial">Internet Residencial (Antena)</option>
+                <option value="fibra">Cambio a FO</option>
+                <option value="empresarial">Internet Empresarial</option>
+                <option value="dedicado">Internet Dedicado</option>
+                <option value="sip">Troncales SIP</option>
+                <option value="cctv">Ojos Virtuales (CCTV)</option>
+                <option value="web">Creación de páginas web</option>
+              </select>
+            </div>
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="btn btn--primary btn--block" id="submitBtn">Enviar solicitud</button>
+            <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ FOOTER ============================================================ -->
+  <footer class="footer" id="sla">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="brand brand--light" id="brandFoot" aria-label="IEC COMUNICACIONES">
+          <img class="brand__logo" src="assets/img/logo.png" alt="IEC Comunicaciones" />
+          <span class="brand__fallback" aria-hidden="true">
+            <span class="brand__mark"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+            <span class="brand__text brand__text--light">IEC<small>Comunicaciones</small></span>
+          </span>
+        </a>
+        <p>ISP e integrador tecnológico con 20 años de trayectoria. Conectividad de alta disponibilidad para empresas y hogares en el centro de México.</p>
+        <div class="footer__certs" aria-label="Certificaciones"><span class="cert">ISO 9001</span><span class="cert">IFT</span><span class="cert">NOC 24/7</span></div>
+      </div>
+      <nav class="footer__col" aria-label="Servicios">
+        <h4>Servicios</h4>
+        <a href="#planes">Internet Residencial</a>
+        <a href="#planes">Planes</a>
+        <a href="#planes">Empresarial dedicado</a>
+        <a href="#soluciones">Soluciones avanzadas</a>
+      </nav>
+      <nav class="footer__col" aria-label="Empresa">
+        <h4>Empresa</h4>
+        <a href="#nosotros">Quiénes somos</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#pagos">Formas de pago</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="footer__col footer__contact">
+        <h4>Contacto</h4>
+        <address>
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle Gustavo Baz Mza 2 Lote 13, Col. Nueva Teotihuacán, Edo. de México<br />
+          <i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:+525512099366">(55) 1209 9366</a> · 15 líneas<br />
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:iec@ieczal.com.mx">iec@ieczal.com.mx</a><br />
+          <i class="fa-solid fa-globe" aria-hidden="true"></i> <a href="https://www.ieczal.com.mx" target="_blank" rel="noopener noreferrer">www.ieczal.com.mx</a> / <a href="https://www.iecz.com.mx" target="_blank" rel="noopener noreferrer">www.iecz.com.mx</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <span>© <span id="year"></span> IEC COMUNICACIONES. Todos los derechos reservados.</span>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="mailto:iec@ieczal.com.mx?subject=Pol%C3%ADtica%20de%20privacidad">Política de privacidad</a>
+          <a href="#seguridad">Términos de servicio</a>
+          <a href="#seguridad">Acuerdo de Nivel de Servicio (SLA)</a>
+          <a href="#planes">Mapa del sitio</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Google Maps (producción): descomenta con tu API key. initMap está en app.js.
+       <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script> -->
+  <script>
+    document.getElementById("navOverlay")?.addEventListener("click", function () {
+      var menu = document.getElementById("navMenu");
+      var toggle = document.getElementById("navToggle");
+      if (menu && menu.classList.contains("open") && toggle) toggle.click();
+    });
+  </script>
+  <script src="app.js" defer></script>
+</body>
+</html>

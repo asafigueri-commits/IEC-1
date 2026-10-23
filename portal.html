@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a1b3d" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Iniciar sesión · IEC COMUNICACIONES · Acceso seguro a tu servicio, facturación y soporte técnico." />
+  <title>Iniciar sesión · IEC COMUNICACIONES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/portal.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="portal-body">
+
+  <!-- ============================================================
+       VISTA 1 · LOGIN (visible por defecto)
+       ============================================================ -->
+  <div class="auth" id="loginView">
+    <!-- Panel de marca -->
+    <aside class="auth__brand" aria-hidden="true">
+      <div class="auth__brand-inner">
+        <a href="index.html" class="brand brand--light" id="brandPortalLogin">
+          <img class="brand__logo" src="assets/img/logo.png" alt="IEC Comunicaciones" />
+          <span class="brand__fallback" aria-hidden="true">
+            <span class="brand__mark">
+              <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </span>
+            <span class="brand__text brand__text--light">IEC<small>Comunicaciones</small></span>
+          </span>
+        </a>
+
+        <h2 class="auth__brand-title">Iniciar sesión</h2>
+        <p class="auth__brand-desc">Gestiona tu servicio, consulta tu consumo, descarga tus facturas y levanta tickets de soporte con nuestro NOC 24/7.</p>
+
+        <ul class="auth__brand-list">
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            Conexión cifrada y acceso restringido
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Monitoreo de tu servicio en tiempo real
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.07 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Soporte técnico prioritario
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Formulario de acceso -->
+    <main class="auth__main">
+      <div class="auth__card">
+        <a href="index.html" class="auth__back">← Volver al sitio</a>
+
+        <h1 class="auth__title">Acceso seguro</h1>
+        <p class="auth__subtitle">Ingresa tus credenciales para acceder a tu panel de control.</p>
+
+        <form class="auth__form" id="loginForm" novalidate>
+          <div class="field">
+            <label for="user">Usuario o número de cliente</label>
+            <div class="field__control">
+              <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="user" name="user" autocomplete="username" placeholder="cliente@empresa.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Contraseña</label>
+            <div class="field__control">
+              <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required />
+              <button type="button" class="field__toggle" id="togglePassword" aria-label="Mostrar contraseña">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth__row">
+            <label class="checkbox">
+              <input type="checkbox" id="remember" name="remember" />
+              <span>Recordarme en este equipo</span>
+            </label>
+            <a href="mailto:iec@ieczal.com.mx?subject=Recuperaci%C3%B3n%20de%20contrase%C3%B1a" class="auth__link">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block" id="loginBtn">Iniciar sesión</button>
+
+          <p class="form-msg" id="loginMsg" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="auth__hint">
+          <strong>Demo:</strong> usuario <code>cliente@iec.com</code> · contraseña <code>cliente123</code>
+        </p>
+
+        <div class="auth__secure">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Conexión protegida · IEC COMUNICACIONES nunca te pedirá tu contraseña por teléfono o correo.
+        </div>
+
+        <p class="auth__staff">
+          <a href="admin.html" class="auth__staff-link">Acceso staff</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============================================================
+       VISTA 2 · DASHBOARD (oculto hasta iniciar sesión)
+       ============================================================ -->
+  <div class="dash" id="dashboardView" hidden>
+    <!-- Barra lateral -->
+    <aside class="dash__sidebar" id="dashSidebar">
+      <a href="index.html" class="brand brand--light dash__brand" id="brandPortalSide">
+        <img class="brand__logo" src="assets/img/logo.png" alt="IEC Comunicaciones" />
+        <span class="brand__fallback" aria-hidden="true">
+          <span class="brand__mark">
+            <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          </span>
+          <span class="brand__text brand__text--light">IEC<small>Portal</small></span>
+        </span>
+      </a>
+
+      <nav class="dash__nav" aria-label="Navegación del portal">
+        <button class="dash__nav-item is-active" data-view="resumen" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          Resumen
+        </button>
+        <button class="dash__nav-item" data-view="servicio" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          Mi servicio
+        </button>
+        <button class="dash__nav-item" data-view="facturacion" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+          Facturación
+        </button>
+        <button class="dash__nav-item" data-view="pago" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Pagar en línea
+        </button>
+        <button class="dash__nav-item" data-view="tickets" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Tickets de soporte
+        </button>
+      </nav>
+
+      <div class="dash__sidebar-foot">
+        <button class="dash__nav-item dash__logout" id="logoutBtn" data-logout type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Cerrar sesión
+        </button>
+      </div>
+    </aside>
+    <div class="dash-overlay" aria-hidden="true"></div>
+
+    <!-- Contenido principal -->
+    <div class="dash__main">
+      <!-- Topbar del dashboard -->
+      <header class="dash__topbar">
+        <button class="dash__menu-btn" id="dashMenuBtn" type="button" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="dash__topbar-title">
+          <h1 id="dashTitle">Resumen</h1>
+          <span class="dash__breadcrumb">Iniciar sesión</span>
+        </div>
+        <div class="dash__topbar-actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activar modo noche" title="Modo noche corporativo">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <div class="dash__user">
+            <span class="dash__avatar" aria-hidden="true">CL</span>
+            <span class="dash__user-info">
+              <strong id="dashUserName">Cliente IEC</strong>
+              <small>Cuenta #IEZ-018245</small>
+            </span>
+          </div>
+          <button class="dash__logout-top" id="logoutBtnTop" data-logout type="button" title="Cerrar sesión" aria-label="Cerrar sesión">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Cerrar sesión</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="dash__content">
+
+        <!-- ===== PANEL: RESUMEN ===== -->
+        <section class="dash__panel is-active" id="view-resumen" aria-label="Resumen">
+          <div class="stat-grid">
+            <article class="stat-card stat-card--ok">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Estado del servicio</span>
+                <span class="badge badge--ok"><span class="dot"></span> En línea / Óptimo</span>
+              </div>
+              <span class="stat-card__value">Activo</span>
+              <span class="stat-card__hint">Sin incidencias reportadas</span>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Velocidad contratada</span>
+                <svg class="stat-card__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 12l5-3"/></svg>
+              </div>
+              <span class="stat-card__value">200 <small>Mbps</small></span>
+              <span class="stat-card__hint">Simétrico · subida/bajada</span>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Consumo del mes</span>
+                <svg class="stat-card__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+              </div>
+              <span class="stat-card__value">1.42 <small>TB</small></span>
+              <span class="stat-card__hint">Servicio ilimitado</span>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Próximo pago</span>
+                <svg class="stat-card__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              </div>
+              <span class="stat-card__value">$2,320</span>
+              <span class="stat-card__hint">Vence el 28 jun 2026</span>
+            </article>
+          </div>
+
+          <!-- Consumo de ancho de banda (gráfico simulado) -->
+          <div class="card chart-card">
+            <div class="card__head">
+              <h2 class="card__title">Consumo de ancho de banda</h2>
+              <span class="card__meta">Últimos 7 días · Mbps promedio</span>
+            </div>
+            <div class="chart" id="bandwidthChart" role="img" aria-label="Gráfico de consumo de ancho de banda de los últimos 7 días">
+              <div class="chart__bar" style="--h:48%"><span data-day="Lun"></span></div>
+              <div class="chart__bar" style="--h:64%"><span data-day="Mar"></span></div>
+              <div class="chart__bar" style="--h:55%"><span data-day="Mié"></span></div>
+              <div class="chart__bar" style="--h:82%"><span data-day="Jue"></span></div>
+              <div class="chart__bar" style="--h:70%"><span data-day="Vie"></span></div>
+              <div class="chart__bar" style="--h:38%"><span data-day="Sáb"></span></div>
+              <div class="chart__bar" style="--h:30%"><span data-day="Dom"></span></div>
+            </div>
+          </div>
+
+          <!-- Uso vs capacidad -->
+          <div class="card">
+            <div class="card__head">
+              <h2 class="card__title">Utilización del enlace ahora</h2>
+              <span class="card__meta">Tiempo real</span>
+            </div>
+            <div class="usage">
+              <div class="usage__row">
+                <span>Bajada</span>
+                <span class="usage__bar"><span class="usage__fill" style="width:62%"></span></span>
+                <span class="usage__val">124 Mbps</span>
+              </div>
+              <div class="usage__row">
+                <span>Subida</span>
+                <span class="usage__bar"><span class="usage__fill" style="width:41%"></span></span>
+                <span class="usage__val">82 Mbps</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PANEL: MI SERVICIO ===== -->
+        <section class="dash__panel" id="view-servicio" aria-label="Mi servicio" hidden>
+          <div class="card">
+            <div class="card__head"><h2 class="card__title">Detalle del servicio</h2></div>
+            <dl class="detail-list">
+              <div><dt>Plan contratado</dt><dd>Internet Dedicado Empresarial</dd></div>
+              <div><dt>Velocidad</dt><dd>200 Mbps simétrico (sin sobresuscripción)</dd></div>
+              <div><dt>SLA</dt><dd>99.9% · respuesta NOC garantizada</dd></div>
+              <div><dt>Dirección IP</dt><dd>198.51.100.24 / 29 (fija)</dd></div>
+              <div><dt>Equipo instalado</dt><dd>Router Carrier Class · ONT GPON</dd></div>
+              <div><dt>Fecha de alta</dt><dd>14 mar 2024</dd></div>
+            </dl>
+          </div>
+
+          <div class="card">
+            <div class="card__head"><h2 class="card__title">Prueba de velocidad</h2><span class="card__meta">Simulada</span></div>
+            <div class="speedtest">
+              <div class="speedtest__gauge">
+                <span class="speedtest__value" id="speedValue">0</span>
+                <span class="speedtest__unit">Mbps</span>
+              </div>
+              <button class="btn btn--primary" id="runSpeedtest" type="button">Iniciar prueba</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PANEL: PAGO EN LÍNEA ===== -->
+        <section class="dash__panel" id="view-pago" aria-label="Pago en línea" hidden>
+          <div class="card pay-panel">
+            <div class="card__head">
+              <h2 class="card__title">Pago con tarjeta</h2>
+              <span class="badge badge--ok"><span class="dot"></span> Conexión segura TLS</span>
+            </div>
+            <p class="pay-panel__intro">Factura pendiente <strong>F-2026-06</strong> · Junio 2026 · <strong>$2,320.00 MXN</strong></p>
+            <div class="pay-panel__brands" aria-label="Tarjetas aceptadas">
+              <span class="pay-brand" title="Visa">Visa</span>
+              <span class="pay-brand" title="Mastercard">Mastercard</span>
+              <span class="pay-brand" title="American Express">AMEX</span>
+            </div>
+            <button type="button" class="btn btn--primary" id="openPaymentBtn">Abrir pasarela de pago</button>
+          </div>
+        </section>
+
+        <!-- ===== PANEL: FACTURACIÓN ===== -->
+        <section class="dash__panel" id="view-facturacion" aria-label="Facturación" hidden>
+          <div class="card">
+            <div class="card__head">
+              <h2 class="card__title">Historial de pagos</h2>
+              <span class="badge badge--ok"><span class="dot"></span> Al corriente</span>
+              <button type="button" class="btn btn--primary btn--sm" id="payPendingBtn">Pagar factura pendiente</button>
+            </div>
+            <div class="table-wrap table-wrap--cards">
+              <table class="table" id="invoiceTable">
+                <thead>
+                  <tr>
+                    <th>Folio</th><th>Periodo</th><th>Monto</th><th>Estado</th><th>Comprobante</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>F-2026-06</td><td>Junio 2026</td><td>$2,320.00</td>
+                    <td><span class="tag tag--pending">Pendiente</span></td>
+                    <td><button class="btn btn--ghost btn--sm" data-invoice="F-2026-06">Descargar PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td>F-2026-05</td><td>Mayo 2026</td><td>$2,320.00</td>
+                    <td><span class="tag tag--paid">Pagada</span></td>
+                    <td><button class="btn btn--ghost btn--sm" data-invoice="F-2026-05">Descargar PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td>F-2026-04</td><td>Abril 2026</td><td>$2,320.00</td>
+                    <td><span class="tag tag--paid">Pagada</span></td>
+                    <td><button class="btn btn--ghost btn--sm" data-invoice="F-2026-04">Descargar PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td>F-2026-03</td><td>Marzo 2026</td><td>$2,320.00</td>
+                    <td><span class="tag tag--paid">Pagada</span></td>
+                    <td><button class="btn btn--ghost btn--sm" data-invoice="F-2026-03">Descargar PDF</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PANEL: TICKETS ===== -->
+        <section class="dash__panel" id="view-tickets" aria-label="Tickets de soporte" hidden>
+          <div class="dash__cols">
+            <div class="card">
+              <div class="card__head"><h2 class="card__title">Levantar un ticket</h2></div>
+              <form class="ticket-form" id="ticketForm" action="api/tickets.php" method="post" novalidate>
+                <div class="field">
+                  <label for="ticketSubject">Asunto</label>
+                  <input type="text" id="ticketSubject" name="subject" required />
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="ticketCategory">Categoría</label>
+                    <select id="ticketCategory" name="category">
+                      <option value="conexion">Falla de conexión</option>
+                      <option value="lentitud">Lentitud / latencia</option>
+                      <option value="facturacion">Facturación</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="ticketPriority">Prioridad</label>
+                    <select id="ticketPriority" name="priority">
+                      <option value="baja">Baja</option>
+                      <option value="media" selected>Media</option>
+                      <option value="alta">Alta</option>
+                      <option value="critica">Crítica</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="ticketBody">Descripción</label>
+                  <textarea id="ticketBody" name="body" rows="4" required></textarea>
+                </div>
+                <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <button type="submit" class="btn btn--primary btn--block" id="ticketBtn">Enviar ticket</button>
+                <p class="form-msg" id="ticketMsg" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="card">
+              <div class="card__head"><h2 class="card__title">Mis tickets</h2></div>
+              <ul class="ticket-list" id="ticketList">
+                <li class="ticket-item">
+                  <div class="ticket-item__head">
+                    <span class="ticket-item__id">#TK-3391</span>
+                    <span class="tag tag--paid">Resuelto</span>
+                  </div>
+                  <p class="ticket-item__subject">Solicitud de reporte de tráfico mensual</p>
+                  <span class="ticket-item__meta">Prioridad media · 02 jun 2026</span>
+                </li>
+                <li class="ticket-item">
+                  <div class="ticket-item__head">
+                    <span class="ticket-item__id">#TK-3402</span>
+                    <span class="tag tag--pending">En proceso</span>
+                  </div>
+                  <p class="ticket-item__subject">Aumento temporal de ancho de banda</p>
+                  <span class="ticket-item__meta">Prioridad alta · 07 jun 2026</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal · pasarela de pago simulada -->
+  <div class="pay-modal" id="paymentModal" hidden aria-modal="true" role="dialog" aria-labelledby="paymentModalTitle">
+    <div class="pay-modal__backdrop" data-close-payment tabindex="-1"></div>
+    <div class="pay-modal__dialog">
+      <header class="pay-modal__head">
+        <div>
+          <h2 class="pay-modal__title" id="paymentModalTitle">Pasarela de pago segura</h2>
+          <p class="pay-modal__subtitle">Factura F-2026-06 · $2,320.00 MXN</p>
+        </div>
+        <button type="button" class="pay-modal__close" id="closePaymentModal" aria-label="Cerrar pasarela de pago">&times;</button>
+      </header>
+
+      <div class="pay-modal__status" id="paymentLoading" role="status" aria-live="polite">
+        <span class="pay-modal__spinner" aria-hidden="true"></span>
+        <p><strong>Sesión iniciada.</strong> Cargando pasarela de pago segura…</p>
+      </div>
+
+      <form class="pay-modal__form" id="paymentForm" hidden novalidate>
+        <div class="pay-modal__brands" aria-label="Tarjetas aceptadas">
+          <span class="pay-brand pay-brand--visa">Visa</span>
+          <span class="pay-brand pay-brand--mc">Mastercard</span>
+          <span class="pay-brand pay-brand--amex">AMEX</span>
+        </div>
+        <div class="field">
+          <label for="cardName">Nombre en la tarjeta</label>
+          <input type="text" id="cardName" name="cardName" autocomplete="cc-name" maxlength="80" required />
+        </div>
+        <div class="field">
+          <label for="cardNumber">Número de tarjeta</label>
+          <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="4111 1111 1111 1111" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="cardExpiry">Vencimiento</label>
+            <input type="text" id="cardExpiry" name="cardExpiry" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/AA" required />
+          </div>
+          <div class="field">
+            <label for="cardCvv">CVV</label>
+            <input type="password" id="cardCvv" name="cardCvv" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="•••" required />
+          </div>
+        </div>
+        <p class="pay-modal__secure"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Transacción cifrada · Simulación demo (no se procesa un cargo real).</p>
+        <button type="submit" class="btn btn--primary btn--block" id="paymentSubmitBtn">Confirmar pago</button>
+        <p class="form-msg" id="paymentMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector(".dash-overlay")?.addEventListener("click", function () {
+      document.getElementById("dashSidebar")?.classList.remove("open");
+    });
+  </script>
+  <script src="assets/js/portal.js" defer></script>
+</body>
+</html>
