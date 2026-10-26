@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#001021" />
   <meta name="description" content="IEC COMUNICACIONES · ISP e integrador tecnológico con 20 años de trayectoria. Fibra óptica simétrica, internet residencial, empresarial y dedicado, troncales SIP, videovigilancia y más en el centro de México." />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://maps.googleapis.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https://images.unsplash.com https://maps.googleapis.com https://maps.gstatic.com; connect-src 'self' https://maps.googleapis.com; base-uri 'self'; form-action 'self'; object-src 'none'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://maps.googleapis.com; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https://maps.googleapis.com https://maps.gstatic.com; connect-src 'self' https://maps.googleapis.com; base-uri 'self'; form-action 'self'; object-src 'none'" />
 
   <!-- =====================================================================
        HARDENING · Configurar en Nginx (proxy inverso) como cabeceras HTTP reales:
@@ -33,7 +33,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body class="site-body">
   <!-- ============================================================ CABECERA ============================================================ -->
@@ -89,8 +89,8 @@
   <main>
     <!-- ============================================================ HERO (con imagen de rack) ============================================================ -->
     <section class="hero hero--media" id="inicio" data-hero>
-      <img class="hero__bg" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=70" alt="" aria-hidden="true"
-           data-fallback="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=70" />
+      <img class="hero__bg" src="assets/img/infra-noc.svg" alt="" aria-hidden="true"
+           data-fallback="assets/img/infra-noc.svg" />
       <span class="hero__overlay" aria-hidden="true"></span>
 
       <div class="container hero__grid">
@@ -150,16 +150,16 @@
             alta disponibilidad y un <strong>soporte técnico local especializado</strong>.
           </p>
             <div class="about__stats">
-            <div class="about__stat"><strong data-count="20" data-prefix="+">+0</strong><span>Años de trayectoria</span></div>
-            <div class="about__stat"><strong data-count="221">0</strong><span>Radio bases activas</span></div>
+            <div class="about__stat"><strong data-count="20" data-prefix="+">+20</strong><span>Años de trayectoria</span></div>
+            <div class="about__stat"><strong data-count="221">221</strong><span>Radiobases activas</span></div>
             <div class="about__stat"><strong>Propia</strong><span>Infraestructura</span></div>
             <div class="about__stat"><strong>Local</strong><span>Soporte calificado</span></div>
           </div>
         </div>
         <figure class="feature-media about__media">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=70"
-               alt="Torre de telecomunicaciones / radiobase de IEC instalada en exteriores"
-               data-fallback="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=70" />
+          <img loading="lazy" src="assets/img/infra-torre.svg"
+               alt="Radiobase de IEC instalada en exteriores"
+               data-fallback="assets/img/infra-torre.svg" />
         </figure>
       </div>
 
@@ -181,7 +181,7 @@
         <div class="tabs reveal reveal--delay-1">
           <div class="tabs__list tabs__list--wrap" role="tablist" aria-label="Categoría de planes">
             <button class="tab is-active" id="tab-res" role="tab" aria-selected="true" aria-controls="panel-res">Residencial</button>
-            <button class="tab" id="tab-fibra" role="tab" aria-selected="false" aria-controls="panel-fibra" tabindex="-1">Cambio a FO</button>
+            <button class="tab" id="tab-fibra" role="tab" aria-selected="false" aria-controls="panel-fibra" tabindex="-1">Cambio a fibra</button>
             <button class="tab" id="tab-emp" role="tab" aria-selected="false" aria-controls="panel-emp" tabindex="-1">Empresarial</button>
             <button class="tab" id="tab-ded" role="tab" aria-selected="false" aria-controls="panel-ded" tabindex="-1">Dedicado</button>
           </div>
@@ -215,35 +215,35 @@
           <!-- B: MIGRACIÓN A FIBRA -->
           <div class="tabs__panel" id="panel-fibra" role="tabpanel" aria-labelledby="tab-fibra" hidden>
             <figure class="feature-media plan-banner">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=70"
-                   alt="Filamentos de fibra óptica activos durante un proceso de fusión de hilos"
-                   data-fallback="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=70" />
+              <img loading="lazy" src="assets/img/infra-fibra.svg"
+                   alt="Fibra óptica de la red de IEC"
+                   data-fallback="assets/img/infra-fibra.svg" />
             </figure>
-            <p class="panel-note">Exclusivo clientes actuales con antena · <strong class="hl">Instalación SIN COSTO</strong> · <strong class="hl">Se entrega Módem y Antena</strong> · <strong class="hl">Internet Ilimitado</strong> · <strong class="hl">Sin plazos forzosos</strong>.</p>
+            <p class="panel-note">Exclusivo para clientes actuales con antena · <strong class="hl">Instalación sin costo</strong> · <strong class="hl">Se entregan módem y antena</strong> · <strong class="hl">Internet ilimitado</strong> · <strong class="hl">Sin plazos forzosos</strong>.</p>
             <div class="subtabs__list" role="tablist" aria-label="Región fibra óptica">
               <button class="subtab is-active" id="st-fib-edo" role="tab" aria-selected="true" aria-controls="sp-fib-edo">Estado de México</button>
               <button class="subtab" id="st-fib-htp" role="tab" aria-selected="false" aria-controls="sp-fib-htp" tabindex="-1">Hidalgo, Puebla y Tlaxcala</button>
             </div>
             <div class="tabs__panel is-active" id="sp-fib-edo" role="tabpanel" aria-labelledby="st-fib-edo">
               <div class="price-grid price-grid--3">
-                <article class="price-card"><h3 class="price-card__name">Fibra 40</h3><p class="price-card__speed">40 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
-                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Fibra 60</h3><p class="price-card__speed">60 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>285<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cambiar a fibra</a></article>
-                <article class="price-card"><h3 class="price-card__name">Fibra 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>535<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 40</h3><p class="price-card__speed">40 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Fibra 60</h3><p class="price-card__speed">60 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>285<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>535<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
               </div>
             </div>
             <div class="tabs__panel" id="sp-fib-htp" role="tabpanel" aria-labelledby="st-fib-htp" hidden>
               <div class="price-grid">
-                <article class="price-card"><h3 class="price-card__name">Fibra 40</h3><p class="price-card__speed">40 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
-                <article class="price-card"><h3 class="price-card__name">Fibra 60</h3><p class="price-card__speed">60 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>335<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
-                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Fibra 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>585<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cambiar a fibra</a></article>
-                <article class="price-card"><h3 class="price-card__name">Fibra 500</h3><p class="price-card__speed">500 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>835<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación SIN COSTO</p><ul class="price-card__features"><li class="hl">Se entrega Módem y Antena</li><li class="hl">Internet Ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 40</h3><p class="price-card__speed">40 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>185<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 60</h3><p class="price-card__speed">60 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>335<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
+                <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Fibra 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>585<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cambiar a fibra</a></article>
+                <article class="price-card"><h3 class="price-card__name">Fibra 500</h3><p class="price-card__speed">500 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>835<span class="per">.00 / mes</span></div><p class="price-card__install hl">Instalación sin costo</p><ul class="price-card__features"><li class="hl">Se entregan módem y antena</li><li class="hl">Internet ilimitado</li><li class="hl">Sin plazos forzosos</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cambiar a fibra</a></article>
               </div>
             </div>
           </div>
 
           <!-- C: EMPRESARIAL -->
           <div class="tabs__panel" id="panel-emp" role="tabpanel" aria-labelledby="tab-emp" hidden>
-            <p class="panel-note">Conectividad simétrica para PyMEs y corporativos · <strong>IP fija</strong> · <strong>Infraestructura propia</strong> · <strong>Sujeto a factibilidad</strong>.</p>
+            <p class="panel-note">Conectividad simétrica para PyMEs y corporativos · <strong>IP fija</strong> · <strong>Infraestructura propia</strong> · <strong>Sujeto a estudio de factibilidad</strong>.</p>
             <aside class="plan-backup reveal" aria-label="Sistema de respaldo incluido">
               <span class="plan-backup__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
               <div class="plan-backup__text">
@@ -252,10 +252,10 @@
               </div>
             </aside>
             <div class="price-grid price-grid--4">
-              <article class="price-card"><h3 class="price-card__name">Básico</h3><p class="price-card__speed">6 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>2,500<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
-              <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Elemental</h3><p class="price-card__speed">10 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>4,000<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--primary btn--block">Solicitar</a></article>
-              <article class="price-card"><h3 class="price-card__name">Premium</h3><p class="price-card__speed">30 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>7,000<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
-              <article class="price-card"><h3 class="price-card__name">Ultimate</h3><p class="price-card__speed">50 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>9,500<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Básico</h3><p class="price-card__speed">6 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>2,500<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
+              <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Elemental</h3><p class="price-card__speed">10 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>4,000<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--primary btn--block">Solicitar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Premium</h3><p class="price-card__speed">30 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>7,000<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Ultimate</h3><p class="price-card__speed">50 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>9,500<span class="per">.00 / mes</span></div><p class="price-card__install">Sin costo de instalación</p><ul class="price-card__features"><li>Velocidad simétrica</li><li>Rápida instalación</li><li>Dirección IP fija</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Solicitar</a></article>
             </div>
           </div>
 
@@ -291,15 +291,15 @@
                 </ul>
                 <div class="price-card--capacity__action">
                   <a href="#contacto" class="btn btn--primary btn--block">Cotizar</a>
-                  <p class="price-card--capacity__note">Ingeniería a medida · Sujeto a factibilidad</p>
+                  <p class="price-card--capacity__note">Ingeniería a medida · Sujeto a estudio de factibilidad</p>
                 </div>
               </div>
             </article>
 
             <div class="price-grid price-grid--3 ded-plans__grid">
-              <article class="price-card"><h3 class="price-card__name">Dedicado 100</h3><p class="price-card__speed">100 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>25,000<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cotizar</a></article>
-              <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Dedicado 300</h3><p class="price-card__speed">300 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>41,500<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cotizar</a></article>
-              <article class="price-card"><h3 class="price-card__name">Dedicado 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>34,000<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cotizar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Dedicado 100</h3><p class="price-card__speed">100 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>25,000<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cotizar</a></article>
+              <article class="price-card price-card--featured"><span class="price-card__ribbon">Recomendado</span><h3 class="price-card__name">Dedicado 300</h3><p class="price-card__speed">300 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>41,500<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--primary btn--block">Cotizar</a></article>
+              <article class="price-card"><h3 class="price-card__name">Dedicado 200</h3><p class="price-card__speed">200 Mbps simétrico</p><div class="price-card__price"><span class="cur">$</span>34,000<span class="per">.00 / mes</span></div><p class="price-card__install">Rápida instalación</p><ul class="price-card__features"><li>Internet puro</li><li>Velocidad simétrica</li><li>Direcciones IP fijas</li><li class="hl">Sistema de Respaldo Inteligente</li><li>Infraestructura propia</li><li>Sujeto a estudio de factibilidad</li></ul><a href="#contacto" class="btn btn--outline btn--block">Cotizar</a></article>
             </div>
           </div>
         </div>
@@ -335,9 +335,9 @@
         </header>
 
         <figure class="feature-media sec-banner reveal">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=70"
-               alt="Pasillo blindado de un Centro de Operaciones de Red (NOC) / Data Center"
-               data-fallback="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=70" />
+          <img loading="lazy" src="assets/img/infra-rack.svg"
+               alt="Rack del Centro de Operaciones de Red de IEC"
+               data-fallback="assets/img/infra-rack.svg" />
         </figure>
 
         <div class="secure-badge reveal reveal--delay-1" role="status" aria-live="polite">
@@ -517,7 +517,7 @@
               <label for="service">Servicio de interés</label>
               <select id="service" name="service">
                 <option value="residencial">Internet Residencial (Antena)</option>
-                <option value="fibra">Cambio a FO</option>
+                <option value="fibra">Cambio a fibra óptica</option>
                 <option value="empresarial">Internet Empresarial</option>
                 <option value="dedicado">Internet Dedicado</option>
                 <option value="sip">Troncales SIP</option>
@@ -595,6 +595,11 @@
       if (menu && menu.classList.contains("open") && toggle) toggle.click();
     });
   </script>
+  <a class="wa-float" href="https://wa.me/525512099366?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20IEC%20COMUNICACIONES." target="_blank" rel="noopener noreferrer" aria-label="Contactar a IEC por WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span>WhatsApp</span>
+  </a>
+
   <script src="app.js" defer></script>
 </body>
 </html>

@@ -195,6 +195,7 @@
     const tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
 
     function activate(tab) {
+      var scrollY = window.scrollY;
       tabs.forEach(function (t) {
         const selected = t === tab;
         t.classList.toggle("is-active", selected);
@@ -202,6 +203,9 @@
         t.setAttribute("tabindex", selected ? "0" : "-1");
         const panel = document.getElementById(t.getAttribute("aria-controls"));
         if (panel) { panel.classList.toggle("is-active", selected); panel.hidden = !selected; }
+      });
+      requestAnimationFrame(function () {
+        if (Math.abs(window.scrollY - scrollY) > 1) window.scrollTo(0, scrollY);
       });
     }
 
@@ -479,7 +483,12 @@
       if (!dec) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       return prefix + s + suffix;
     }
-    if (!motionOk) { el.textContent = fmt(target); return; }
+    var finalText = fmt(target);
+    var shown = parseFloat(String(el.textContent || "").replace(/[^\d.]/g, ""));
+    if (!motionOk || (shown === target && target > 0)) {
+      el.textContent = finalText;
+      return;
+    }
     function tick(now) {
       var p = Math.min((now - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
